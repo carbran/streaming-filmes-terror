@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D9D9D9;
+    color: #BF2633;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    background: url('../../storage/app/public/images/super8-film.png') repeat-y center center;
+    background-size: contain;
+}
+
+body::before {
+    left: 0;
+}
+
+body::after {
+    right: 0;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#preloader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-clip: padding-box;
+}
+
+.super8 {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.super8-img {
+    text-align: center;
+    width: 40%;
+    height: 40%;
+    min-width: 20%;
+    min-height: 20%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.video-item {
+    width: 100%;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.video-title {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #fff;
+    min-height: 67px;
+}
+
+video {
+    width: 100%;
+    border: 2px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .video-item {
+        flex: 1 1 calc(50% - 20px);
+    }
+
+    .container {
+        width: 80%;
+        margin: 10px;
+    }
+
+    body {
+        background-size: 15% auto, 15% auto;
+    }
+
+    #main-content {
+        background-size: 15% auto, 15% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-item {
+        flex: 1 1 100%;
+    }
+
+    .container {
+        width: 90%;
+        margin: 15px;
+    }
+
+    body {
+        background-size: 20% auto, 20% auto;
+    }
+
+    #main-content {
+        background-size: 20% auto, 20% auto;
+    }
+}
+
+/* Paleta
+#BF0413
+#BF2633
+#D9D9D9
+#BFBFBF
+#0D0D0D
+*/
