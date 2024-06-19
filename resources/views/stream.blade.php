@@ -23,12 +23,9 @@
                     <div class="video-item">
                         <h3 class="video-title">{{$data['name']}}</h3>
                         <video controls preload="none" poster="{{ asset('storage/' . $data['image']) }}">
-                            <source src="{{ asset('storage/' . $data['video']) }}"
+                            <source src="{{$data['video']}}"
                                 type="video/{{ pathinfo($data['video'], PATHINFO_EXTENSION) }}">
-                            Desculpe, seu navegador não suporta vídeos incorporados, mas não se preocupe,
-                            você pode
-                            <a href="{{ asset('storage/' . $data['video']) }}">baixá-lo</a>
-                            e assisti-lo com seu player de vídeo favorito!
+                            Seu navegador não suporta a tag de vídeo.
                         </video>
                     </div>
                 @endforeach

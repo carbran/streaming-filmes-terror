@@ -2,42 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
     public function index()
     {
-        // Pega todos os arquivos da pasta 'public/videos'
-        $files = Storage::files('public/videos');
+        $videoPath = env('VIDEO_URL');
 
-        // Filtra arquivos de vídeo pelos formatos suportados
-        $videoFormats = ['mp4', 'webm', 'ogg', 'avi', 'mov', 'wmv', 'flv', 'mkv', 'mpg', 'mpeg'];
-        $videos = array_filter($files, function($file) use ($videoFormats) {
-            $extension = pathinfo($file, PATHINFO_EXTENSION);
-            return in_array($extension, $videoFormats);
-        });
-
-        // Remove o prefixo 'public/' para criar URLs acessíveis
-        $videos = array_map(function($video) {
-            return str_replace('public/', '', $video);
-        }, $videos);
-
-         // Associar cada vídeo à sua capa de imagem
-        $videoData = [];
-        foreach ($videos as $video) {
-            $videoName = pathinfo($video, PATHINFO_FILENAME);
-            $imagePath = 'posters/' . $videoName . '.png';
-            if (!Storage::exists('public/' . $imagePath)) {
-                $imagePath = 'posters/default.png';
-            }
-            $videoData[] = [
-                'video' => $video,
-                'image' => $imagePath,
-                'name'  => $videoName
-            ];
-        }
+        $videoData = [
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_INUSITADOS_QUE_VOCE_NAO_VIU.webm',
+                'image' => 'images/8 FILMES DE TERROR INUSITADOS QUE VOCÊ NÃO VIU.png',
+                'name'  => '8 FILMES DE TERROR INUSITADOS QUE VOCÊ NÃO VIU'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_PRA_SE_BORRAR_DE_MEDO_-_ASSOMBRACAO_PSICOLOGICA.webm',
+                'image' => 'images/8 FILMES DE TERROR PRA SE BORRAR DE MEDO - ASSOMBRAÇÃO PSICOLÓGICA.png',
+                'name'  => '8 FILMES DE TERROR PRA SE BORRAR DE MEDO - ASSOMBRAÇÃO PSICOLÓGICA'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_PRA_SE_BORRAR_DE_MEDO_-_INVASAO_DOMICILIAR.webm ',
+                'image' => 'images/8 FILMES DE TERROR PRA SE BORRAR DE MEDO - INVASÃO DOMICILIAR.png',
+                'name'  => '8 FILMES DE TERROR PRA SE BORRAR DE MEDO - INVASÃO DOMICILIAR'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_PRA_SE_BORRAR_DE_MEDO_-_LOBISOMEM.webm',
+                'image' => 'images/8 FILMES DE TERROR PRA SE BORRAR DE MEDO - LOBISOMEM.png',
+                'name'  => '8 FILMES DE TERROR PRA SE BORRAR DE MEDO - LOBISOMEM'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_PRA_SE_BORRAR_DE_MEDO_-_ZUMBIS_MODERNOS.webm',
+                'image' => 'images/8 FILMES DE TERROR PRA SE BORRAR DE MEDO - ZUMBIS MODERNOS.png',
+                'name'  => '8 FILMES DE TERROR PRA SE BORRAR DE MEDO - ZUMBIS MODERNOS'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_PRA_VOCE_SE_BORRAR_DE_MEDO.webm',
+                'image' => 'images/8 FILMES DE TERROR PRA VOCÊ SE BORRAR DE MEDO.png',
+                'name'  => '8 FILMES DE TERROR PRA VOCÊ SE BORRAR DE MEDO'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_SUBESTIMADOS_2.webm',
+                'image' => 'images/8 FILMES DE TERROR SUBESTIMADOS 2.png',
+                'name'  => '8 FILMES DE TERROR SUBESTIMADOS 2'
+            ],
+            [
+                'video' => $videoPath.'/8_FILMES_DE_TERROR_SUBESTIMADOS.webm',
+                'image' => 'images/8 FILMES DE TERROR SUBESTIMADOS.png',
+                'name'  => '8 FILMES DE TERROR SUBESTIMADOS'
+            ],
+            [
+                'video' => $videoPath.'/8_MELHORES_FILMES_DE_TERROR_FOUND_FOOTAGE_QUE_VOCE_NAO_VIU.mp4',
+                'image' => 'images/8 MELHORES FILMES DE TERROR FOUND FOOTAGE QUE VOCÊ NÃO VIU.png',
+                'name'  => '8 MELHORES FILMES DE TERROR FOUND FOOTAGE QUE VOCÊ NÃO VIU'
+            ],
+        ];
 
         return view('stream', compact('videoData'));
     }

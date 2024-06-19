@@ -1,4 +1,5 @@
 import './bootstrap';
+import '../../public/fonts/Creepster-Regular.ttf';
 // JavaScript para controlar a reprodução dos vídeos
 document.addEventListener('DOMContentLoaded', function() {
     const videos = document.querySelectorAll('video');
