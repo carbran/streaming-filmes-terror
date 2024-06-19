@@ -32,6 +32,20 @@
             </div>
         </div>
     </div>
+    <div class="container-foot">
+        <div class="row-foot">
+            <div class="col-foot">
+                <h3>Sobre o Site</h3>
+                <p>Este site é um projeto fictício de streaming de vídeos.</p>
+            </div>
+            <div class="col-foot">
+                <h3>Créditos dos Vídeos</h3>
+                <p>Os vídeos apresentados são propriedade do canal <a href="https://www.youtube.com/@otaviouga">Super 8</a>.</p>
+            </div>
+        </div>
+    <div class="credits">
+        <p>&copy; 2024 Super 8 Filmes de Terror - Nenhum direito reservado.</p>
+    </div>
+</div>
 </body>
-
 </html>

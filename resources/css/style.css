@@ -161,6 +161,60 @@ video {
     }
 }
 
+.teste {
+    background-color: #0D0D0D;
+    width: 100%;
+}
+
+footer {
+    background-color: #0D0D0D;
+    color: #BFBFBF;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.container-foot {
+    width: 100%;
+    background-color: #0D0D0D;
+    align-items: center;
+    color: #BFBFBF;
+    padding: 20px 0;
+    /* margin: 0 auto; */
+    align-items: center;
+}
+
+.row-foot {
+    display: flex;
+    justify-content: space-around;
+}
+
+.col-foot {
+    width: 25%;
+}
+
+.col-foot h3 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.col-foot p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.credits {
+    background-color: #222;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.credits p {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
 /* Paleta
 #BF0413
 #BF2633
